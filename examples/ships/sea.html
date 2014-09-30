@@ -1,0 +1,128 @@
+
+<polymer-element name="bright-sea">
+  <template>
+
+    <style>
+      .bright-sea {
+        text-align: center;
+      }
+      polyfill-next-selector { content: '.bright-sea bright-ship + bright-ship'; }
+      ::content bright-ship + bright-ship {
+        margin-left: 1em;
+      }
+      polyfill-next-selector { content: '.bright-sea bright-ship'; }
+      ::content bright-ship {
+        vertical-align: bottom;
+      }
+      .bright-sea > div {
+        background-color: rgb(123, 176, 223);
+      }
+      .bright-sea > div > div {
+        background: url(sea.svg) top repeat-x;
+        background-size: auto 1.1em;
+        height: 4em;
+        top: -0.6em;
+        position: relative;
+        z-index: 1;
+      }
+
+      @-webkit-keyframes swaying {
+        0% {
+          transform: translate(0, 0.3em);
+        }
+        50% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(0, 0.3em);
+        }           
+      }
+
+      @keyframes swaying {
+        0% {
+          transform: translate(0, 0.3em);
+        }
+        50% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(0, 0.3em);
+        }           
+      }
+
+      .bright-sea {
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-name: swaying;
+        -webkit-animation-fill: both;
+        -webkit-animation-duration: 12s; 
+        -webkit-animation-iteration-count: infinite;
+
+        animation-timing-function: ease-in-out;
+        animation-name: swaying;
+        animation-fill: both;
+        animation-duration: 3s; 
+        animation-iteration-count: infinite;
+      }
+
+      /*
+      @-webkit-keyframes tossing {
+        0% {
+          transform: rotate(-4deg); 
+        }
+        50% {
+          transform: rotate(4deg);
+        }
+        100% {
+          transform: rotate(-4deg); 
+        }           
+      }
+
+      @keyframes tossing {
+        0% {
+          transform: rotate(-4deg); 
+        }
+        50% {
+          transform: rotate(4deg);
+        }
+        100% {
+          transform: rotate(-4deg); 
+        }           
+      }
+
+      polyfill-next-selector { content: 'bright-ship'; }
+      ::content bright-ship {
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-name: tossing;
+        -webkit-animation-duration: 3s; 
+        -webkit-animation-iteration-count: infinite;
+
+        animation-timing-function: ease-in-out;
+        animation-name: tossing;
+        animation-duration: 3s; 
+        animation-iteration-count: infinite;
+      }
+      */
+
+    </style>
+
+    <core-style ref="bright-sea"></core-style>
+
+    <div class="bright-sea">
+      <content></content>
+      <div>
+        <div></div>
+      </div>
+    </div>
+
+  </template>
+  <script>
+    Polymer({
+      domReady: function() {
+        var fleet = this.querySelectorAll("bright-ship");
+        for (var index = 0; index < fleet.length; index++) {
+          fleet[index].setAttribute("tossing", "tossing");
+        }
+      }
+    });
+  </script>
+</polymer-element>

@@ -1,0 +1,65 @@
+
+<polymer-element name="bright-sky">
+  <template>
+
+    <style>
+
+      /* Sky */
+      :host {
+        position: relative;
+        background: rgb(246, 251, 255);
+        transition: background-color 0.2s;
+      }
+      :host-context(.dusk) {
+        background: rgb(55, 85, 134);
+      }
+
+      /* Sun */
+      polyfill-next-selector { content: '.bright-sky bright-sun'; }
+      ::content bright-sun {
+        position: absolute;
+        top: 1em;
+        right: 1em;
+      }
+      :host-context(.dusk) ::content bright-sun {
+        top: auto;
+        bottom: 4em;
+      }
+
+    </style>
+
+    <div class="bright-sky">
+      <content></content>
+    </div>
+
+  </template>
+  <script>
+    Polymer({
+      domReady: function() {
+        this.addEventListener("click", function(e) {
+          document.body.classList.toggle("dusk");
+        }, false);
+      },
+      toDusk: function() {
+        var animation = new CoreAnimation();
+        animation.duration = 500;
+        animation.keyframes = [
+          {opacity: 0},
+          {opacity: 1}
+        ];
+        animation.target = this.shadowDom.querySelector('bright-sun');
+        animation.play();
+      },
+      toDay: function() {
+        var animation = new CoreAnimation();
+        animation.duration = 500;
+        animation.keyframes = [
+          {opacity: 0},
+          {opacity: 1}
+        ];
+        animation.target = this.shadowDom.querySelector('bright-sun');
+        animation.play();
+      }
+    });
+  </script>
+</polymer-element>

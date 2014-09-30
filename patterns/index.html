@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>Polymer Cheat Sheet</title>
+
+  <script></script>
+
+  <link rel="import" href="components/polymer/polymer.html" />
+  <link rel="import" href="components/google-map/google-map.html" />
+  <link rel="import" href="components/paper-input/paper-input.html" />
+  <link rel="import" href="components/paper-button/paper-button.html" />
+  <link rel="import" href="components/paper-progress/paper-progress.html" />
+  <link rel="import" href="components/paper-shadow/paper-shadow.html" />
+  <link rel="import" href="components/paper-toast/paper-toast.html" />
+  <link rel="import" href="components/core-selector/core-selector.html" />
+  <link rel="import" href="components/core-list/core-list.html" />
+
+
+  <style>
+    body {
+      font: 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 3em;
+    }
+    h2 {
+      margin-top: 6em;
+    }
+    body > h3 {
+      margin-top: 3em;
+    }
+    pre {
+      background: rgb(235, 235, 235);
+      padding: 1.5em;
+    }
+    google-map {
+      display: block;
+      width: 400px;
+      height: 400px;
+    }
+  </style>
+
+</head>
+<body>
+
+<h2>Elements</h2>
+
+<p><a href="https://www.polymer-project.org/components/core-elements/demo.html#core-scroll-header-panel">Core Elements</a></p>
+
+<p><a href="https://www.polymer-project.org/components/paper-elements/demo.html">Paper Elements</a></p>
+
+<h3>Timestamp</h3>
+<time datetime="2001-05-15 19:00">May 15</time>
+<pre><code>&lt;time datetime=&quot;2001-05-15 19:00&quot;&gt;May 15&lt;/time&gt;
+</code></pre>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time">Time on MDN</a></p>
+
+
+<h3>Daily Observation / Lesson / Decision (Text)</h3>
+<p>Today I decided to make a list of elements that can be used to piece together an app; a bit like a list of ingredients.</p>
+<p>My goal is to make it easy to implement different interface ideas.</p>
+<pre><code>&lt;p&gt;Today I decided to make a list of elements that can be used to piece together an app; a bit like a list of ingredients.&lt;/p&gt;
+&lt;p&gt;My goal is to make it easy to implement different interface ideas.&lt;/p&gt;
+</code></pre>
+
+
+<h3>Location / (Latitude, Longitude / Place Name)</h3>
+<!-- https://github.com/GoogleWebComponents/google-map/blob/master/google-map.html -->
+<google-map latitude="37.77493" longitude="-122.41942"></google-map>
+<pre><code>&lt;google-map latitude=&quot;37.77493&quot; longitude=&quot;-122.41942&quot;&gt;&lt;/google-map&gt;</code></pre>
+
+
+<h3>Team Member / Author (Username / Full Name)</h3>
+<link rel="import" href="avatars.html" />
+<p>Posted by Jim <core-icon icon="avatars:cat" style="width: 36px; height: 36px; margin-left: 12px;"></core-icon></p>
+
+<pre><code>&lt;p&gt;Posted by Jim &lt;core-icon icon=&quot;avatars:cat&quot;&gt;&lt;/core-icon&gt;&lt;/p&gt;
+</code></pre>
+
+
+
+<h3>Name</h3>
+<!-- http://www.polymer-project.org/docs/elements/paper-elements.html#paper-input -->
+
+<paper-input label="Your name"></paper-input>
+
+<pre><code>&lt;paper-input label=&quot;Your name&quot;&gt;&lt;/paper-input&gt;
+</code></pre>
+
+<h3>Text</h3>
+<paper-input multiline label="What are your (multiline) thoughts?"></paper-input>
+
+<pre><code>&lt;paper-input multiline label=&quot;What are your (multiline) thoughts?&quot;&gt;&lt;/paper-input&gt;
+</code></pre>
+
+<paper-input multiline label="What are your (multiline) thoughts?" value="Today I decided to make a list of elements that can be used to piece together an app…"></paper-input>
+
+
+<h3>Email</h3>
+<paper-input type="email" label="Email address"></paper-input>
+
+<pre><code>&lt;paper-input type=&quot;email&quot; label=&quot;Email address&quot;&gt;&lt;/paper-input&gt;
+</code></pre>
+
+
+<h3>Password</h3>
+<paper-input type="Password" label="Password"></paper-input>
+
+<pre><code>&lt;paper-input type=&quot;password&quot; label=&quot;Password&quot;&gt;&lt;/paper-input&gt;
+</code></pre>
+
+
+<h3>Submit Button</h3>
+<!-- http://www.polymer-project.org/docs/elements/paper-elements.html#paper-button -->
+<paper-button raisedButton label="Submit"></paper-button>
+<pre><code>&lt;paper-button raisedButton label=&quot;Submit&quot;&gt;&lt;/paper-button&gt;
+</code></pre>
+
+
+<h3>Cancel Button</h3>
+<paper-button label="Cancel"></paper-button>
+<pre><code>&lt;paper-button label=&quot;Cancel&quot;&gt;&lt;/paper-button&gt;
+</code></pre>
+
+
+<h3>Progress</h3>
+<paper-progress value="10"></paper-progress>
+
+<pre><code>&lt;paper-progress value=&quot;10&quot;&gt;&lt;/paper-progress&gt;
+</code></pre>
+
+
+
+<h3>Photo</h3>
+<figure>
+  <img src="http://www.crystalinks.com/windmills.jpg" width="600" height="398" alt="" />
+  <figcaption>I found some windmills on a hilltop yesterday.</figcaption>
+</figure>
+
+<pre><code>&lt;figure&gt;
+  &lt;img src=&quot;http://www.crystalinks.com/windmills.jpg&quot; width=&quot;600&quot; height=&quot;398&quot; alt=&quot;&quot; /&gt;
+  &lt;figcaption&gt;I found some windmills on a hilltop yesterday.&lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre>
+
+
+<h3>Video</h3>
+<figure>
+  <iframe width="640" height="480" src="//www.youtube.com/embed/OeP4FFr88SQ" frameborder="0" allowfullscreen></iframe>
+  <figcaption>Bob is an amazing songwriter.</figcaption>
+</figure>
+
+<pre><code>&lt;figure&gt;
+  &lt;iframe width=&quot;640&quot; height=&quot;480&quot; src=&quot;//www.youtube.com/embed/OeP4FFr88SQ&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+  &lt;figcaption&gt;Bob is an amazing songwriter.&lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre>
+
+
+<h3>Social Site Name</h3>
+
+<link rel="import" href="social.html" />
+
+<core-icon icon="social:twitter"></core-icon>
+
+<pre><code>&lt;core-icon icon=&quot;social:twitter&quot;&gt;&lt;/core-icon&gt;
+</code></pre>
+
+<paper-button icon="social:twitter" raisedButton label="Connect"></paper-button>
+
+<pre><code>&lt;paper-button icon=&quot;social:twitter&quot; raisedButton label=&quot;Connect&quot;&gt;&lt;/paper-button&gt;
+</code></pre>
+
+<!--
+<h4>This icon is decorative, so it has an empty “alt” attribute</h4>
+
+<core-icon icon="social:twitter" alt=""></core-icon> Twitter
+
+<pre><code>&lt;core-icon icon=&quot;social:twitter&quot; alt=&quot;&quot;&gt;&lt;/core-icon&gt; Twitter
+</code></pre>
+-->
+
+
+
+<h2>Components</h2>
+
+<h3>Social Site (Name, Tags for Import)</h3>
+
+<style>
+.tag-list,
+.tag-list li {
+  list-style: none;
+  padding-left: 0;
+}
+.tag-list li {
+  display: inline;
+  text-transform: lowercase;
+}
+.tag-list li::before {
+  content: "#";
+}
+</style>
+
+<p>
+  Connected to <core-icon icon="social:twitter"></core-icon>
+  <br />
+  with tags…
+</p>
+<ul class="tag-list">
+  <li>Cities</li>
+  <li>Bikes</li>
+  <li>Art</li>
+</ul>
+
+
+
+
+<h3>Chronological List</h3>
+
+<style>
+.post-list,
+.post-list li {
+  list-style: none;
+  padding-left: 0;
+}
+.post-list li + li {
+  margin-top: 1.5em;
+}
+.post-list article {
+  padding: 1.5em;
+  position: relative;
+}
+</style>
+
+<ul class="post-list">
+  <li>
+    <article>
+      <paper-shadow></paper-shadow>
+      <h3><time datetime="2001-05-15 19:00">Today</time></h3>
+      <p>Today I decided to make a list of elements that can be used to piece together an app; a bit like a list of ingredients.</p>
+      <p>My goal is to make it easy to implement different interface ideas.</p>
+    </article>
+  </li>
+  <li>
+    <article>
+      <paper-shadow></paper-shadow>
+      <h3><time datetime="2001-05-16 19:00">Yesterday</time></h3>
+      <google-map latitude="37.77493" longitude="-122.41942" style="width: 320px; height: 320px;"></google-map>
+    </article>
+  </li>
+</ul>
+
+<pre><code>&lt;article&gt;
+  &lt;paper-shadow&gt;&lt;/paper-shadow&gt;
+  …
+&lt;/article&gt;
+…
+&lt;article&gt;
+  &lt;paper-shadow&gt;&lt;/paper-shadow&gt;
+  …
+&lt;/article&gt;
+</code></pre>
+
+
+<!--
+https://www.polymer-project.org/docs/elements/core-elements.html#core-list
+
+<h3>Infinite List</h3>
+
+<ul class="post-list">
+  <core-list id="list" height="80">
+    <template>
+      <li class="{{ {selected: selected} | tokenList }}">
+        <article>
+          <paper-shadow></paper-shadow>
+          <h3><time datetime="2001-05-15 19:00">Today</time></h3>
+          <p>Today I decided to make a list of elements that can be used to piece together an app; a bit like a list of ingredients.</p>
+          <p>My goal is to make it easy to implement different interface ideas.</p>
+        </article>
+      </li>
+    </template>
+  </core-list>
+</ul>
+-->
+
+
+
+<h3>Navigation</h3>
+
+<style>
+#navigation li {
+  cursor: pointer;
+}
+#navigation li[active] {
+  font-weight: bold;
+}
+</style>
+
+<template is="auto-binding">
+
+  <core-selector target="{{$.navigation}}" itemsSelector="li" selected="0" selectedItem="{{item}}"></core-selector>
+
+  <nav id="navigation">
+    <ul>
+      <li>Notifications</li>
+      <li>Settings</li>
+      <li>Add a Post</li>
+    </ul>
+  </nav>
+
+  <p>The selected item is: <em>{{item.innerHTML}}</em></p>
+
+</template>
+
+<pre><code>&lt;template is=&quot;auto-binding&quot;&gt;
+
+  &lt;core-selector target=&quot;{{$.navigation}}&quot; itemsSelector=&quot;li&quot; selected=&quot;0&quot; selectedItem=&quot;{{item}}&quot;&gt;&lt;/core-selector&gt;
+
+  &lt;nav id=&quot;navigation&quot;&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Notifications&lt;/li&gt;
+      &lt;li&gt;Settings&lt;/li&gt;
+      &lt;li&gt;Add a Post&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+
+  &lt;p&gt;The selected item is: &lt;em&gt;{{item.innerHTML}}&lt;/em&gt;&lt;/p&gt;
+
+&lt;/template&gt;
+</code></pre>
+
+
+<!--
+<h3>Social Accounts List</h3>
+
+<ul class="social-list">
+  <li>
+    …
+  </li>
+  …
+</ul>
+-->
+
+
+
+<!-- 
+<h3>Status</h3>
+http://www.polymer-project.org/docs/elements/paper-elements.html#paper-toast -->
+
+<!-- 
+<h3>Dialog</h3>
+http://www.polymer-project.org/docs/elements/paper-elements.html#paper-dialog -->
+
+<!--
+<h3>Toolbar</h3>
+https://www.polymer-project.org/docs/elements/core-elements.html#core-toolbar -->
+
+<!--
+<h3>Header</h3>
+https://www.polymer-project.org/docs/elements/core-elements.html#core-scroll-header-panel -->
+
+
+
+</body>
+</html>

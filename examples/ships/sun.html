@@ -1,0 +1,22 @@
+
+<link rel="import" href="icons.html">
+
+<polymer-element name="bright-sun" noscript>
+  <template>
+    <style>
+      .sun-icon {
+        font-size: inherit;
+        width: 5em;
+        height: 5em;
+        margin-bottom: -1em;
+      }
+      svg circle {
+        transition: fill 0.2s;
+      }
+      :host-context(.dusk) svg circle {
+        fill: rgb(247, 157, 130);
+      }
+    </style>
+    <core-icon class="sun-icon" icon="bright-icons:sun"></core-icon>
+  </template>
+</polymer-element>

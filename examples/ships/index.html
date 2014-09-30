@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script src="../../components/platform/platform.js"></script>
+  <link rel="import" href="../../components/polymer/polymer.html" />
+
+  <link rel="import" href="../../components/core-style/core-style.html" />
+
+  <link rel="import" href="scene.html" />
+  <link rel="import" href="sky.html" />
+  <link rel="import" href="sea.html" />
+  <link rel="import" href="sun.html" />
+  <link rel="import" href="dock.html" />
+  <link rel="import" href="ship.html" />
+
+  <title>Ships on the open sea!</title>
+
+  <style>
+    body, html {
+      width: 100%;
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Goudy Bookletter 1911", Mate, "Georgia", serif;
+    }
+    @media (min-height: 40em) and (min-aspect-ratio: 1/1) {
+      body {
+        font-size: 3vh;
+      }
+    }
+    @media (min-width: 40em) and (max-aspect-ratio: 1/1) {
+      body {
+        font-size: 3vw;
+      }
+    }
+    body.dusk {
+      color: white;
+    }
+    h1 {
+      font-weight: normal;
+      margin: 0;
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      z-index: 1;
+    }
+    h2 {
+      font-weight: normal;
+    }
+    bright-sea bright-ship:first-of-type {
+      font-size: 0.95em;
+    }
+
+  </style>
+
+  <core-style id="bright-ship">
+    /* TODO: Style the flag instead of the whole ship */
+    svg path {
+      fill: rgba(0, 11, 12, 0.8);
+    }
+  </core-style>
+
+</head>
+<body>
+
+<h1>Ships on the open sea!</h1>
+
+<bright-scene>
+
+  <!--
+  <bright-sky>
+    <core-animated-pages transitions="cross-fade">
+      <bright-sun cross-fade></bright-sun>
+      <bright-moon cross-fade></bright-moon>
+    </core-animated-pages>
+  </bright-sky>
+  -->
+
+  <bright-sky>
+    <bright-sun></bright-sun>
+  </bright-sky>
+
+  <bright-dock>
+    <bright-ship>
+      <p>Soon we shall go!</p>
+    </bright-ship>
+  </bright-dock>
+
+  <bright-sea>
+    <bright-ship>
+      <p>Set sail!</p>
+    </bright-ship>
+    <bright-ship>
+      <p>Ho!</p>
+    </bright-ship>
+  </bright-sea>
+
+</bright-scene>
+
+<!--
+<script>
+(function() {
+  var headline = document.querySelector("h1");
+  if (headline) {
+    headline.addEventListener("click", function(e) {
+      document.body.classList.toggle("dusk");
+    }, false);
+    headline.style.cursor = "pointer";
+  }
+})();
+</script>
+-->
+
+</body>
+</html>

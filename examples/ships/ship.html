@@ -1,0 +1,176 @@
+
+<link href="http://fonts.googleapis.com/css?family=Mate|Goudy+Bookletter+1911" rel="stylesheet" type="text/css" />
+
+<link rel="import" href="icons.html">
+<link rel="import" href="../../components/core-animation/core-animation.html">
+
+<polymer-element name="bright-ship" attributes="tossing">
+  <template>
+
+    <style>
+
+      polyfill-next-selector { content: 'bright-ship'; }
+      :host {
+        margin-top: 2em;
+        font-family: "Goudy Bookletter 1911", Mate, "Georgia", serif;
+        display: inline-block;
+        font-size: 1.25em;
+        position: relative;
+      }
+
+      :host-context(bright-dock) svg path {
+        fill: rgb(128, 64, 0);
+      }
+
+      /* TBD: Host context doesn’t seem to accept complex selectors
+      :host-context(.dusk bright-dock) svg path {
+        fill: rgb(98, 34, 0);
+      }
+      */
+
+      polyfill-next-selector { content: 'bright-ship p'; }
+      ::content p {
+        margin-top: 0.25em;
+        font-style: normal;
+        display: block;
+        position: absolute;
+        top: -1.75em;
+        left: 0;
+        min-width: 100%;
+        text-align: center;
+        white-space: nowrap;
+        transition: color 0.5s;
+      }
+
+      :host-context(.dusk) ::content p {
+        color: rgb(235, 235, 235)
+      }
+
+      .bright-ship core-icon {
+        font-size: inherit;
+        width: 5em;
+        height: 5em;
+        margin-bottom: -1em;
+      }
+
+    </style>
+
+    <core-animation id="tossing" duration="3000" iterations="Infinity" direction="alternate" easing="ease-in-out" fill="both">
+      <core-animation-keyframe>
+        <core-animation-prop name="transform" value="rotate(-4deg)"></core-animation-prop>
+      </core-animation-keyframe>
+      <core-animation-keyframe>
+        <core-animation-prop name="transform" value="rotate(4deg)"></core-animation-prop>
+      </core-animation-keyframe>
+    </core-animation>
+
+    <core-style ref="bright-ship"></core-style>
+
+    <div class="bright-ship">
+      <core-icon icon="bright-icons:ship"></core-icon>
+      <content></content>
+    </div>
+
+  </template>
+  <script>
+    Polymer({
+      tossing: false,
+      animation: undefined,
+      moveAnimation: undefined,
+      position: undefined,
+      domReady: function() {
+        if (this.tossing) {
+          this.toss();
+        }
+        this.position = 0;
+      },
+      toss: function() {
+        var randomDelay = Math.floor(Math.random() * 3000) + 1;
+        if (!this.animation) this.animation = this.shadowRoot.getElementById("tossing");
+        this.animation.delay = randomDelay;
+        this.animation.target = this;
+        this.animation.play();
+      },
+      stopTossing: function() {
+        if (this.animation) this.animation.cancel();
+      },
+      advance: function() {
+        if (this.moveAnimation) this.moveAnimation.cancel();
+        this.moveAnimation = new CoreAnimation();
+        this.moveAnimation.composite = "accumulate";
+
+        this.moveAnimation.easing = "ease-in-out";
+        this.moveAnimation.fill = "forwards";
+        this.moveAnimation.duration = 1000;
+
+        this.moveAnimation.customEffect = this.moveForward.bind(this);
+        this.moveAnimation.target = this;
+        this.moveAnimation.play();
+      },
+      moveForward: function(timeFraction, target, animation) {
+        /*
+        console.log("timeFraction: " + timeFraction);
+        console.log("target: " + target);
+        console.log("animation: " + animation);
+        */
+        target.style.position = "relative";
+        target.style.left = (this.position++) + "px"; //"translateX(" + (counter++) + "px)";
+      },
+      retreat: function() {
+        if (this.moveAnimation) this.moveAnimation.cancel();
+        this.moveAnimation = new CoreAnimation();
+        this.moveAnimation.composite = "accumulate";
+
+        this.moveAnimation.easing = "ease-in-out";
+        this.moveAnimation.fill = "forwards";
+        this.moveAnimation.duration = 1000;
+
+        this.moveAnimation.customEffect = this.moveBackward.bind(this);
+        this.moveAnimation.target = this;
+        this.moveAnimation.play();
+      },
+      moveBackward: function(timeFraction, target, animation) {
+        /*
+        console.log("timeFraction: " + timeFraction);
+        console.log("target: " + target);
+        console.log("animation: " + animation);
+        */
+        target.style.position = "relative";
+        target.style.left = (this.position--) + "px"; //"translateX(" + (counter++) + "px)";
+      }
+      /*
+      advance: function() {
+        if (this.moveAnimation) this.moveAnimation.cancel();
+
+        this.moveAnimation = new CoreAnimation();
+        this.moveAnimation.composite = "accumulate";
+
+        this.moveAnimation.easing = "ease-in-out";
+        this.moveAnimation.fill = "forwards";
+        this.moveAnimation.duration = 5000;
+        this.moveAnimation.keyframes = [
+          { transform: "translateX(100px)" }
+        ];
+        this.moveAnimation.target = this;
+        this.moveAnimation.play();
+      },
+      retreat: function() {
+        if (this.moveAnimation) this.moveAnimation.cancel();
+
+        this.moveAnimation = new CoreAnimation();
+        this.moveAnimation.composite = "accumulate";
+
+        this.moveAnimation.easing = "ease-in-out";
+        this.moveAnimation.fill = "forwards";
+        this.moveAnimation.duration = 5000;
+        this.moveAnimation.keyframes = [
+          { transform: "translateX(-100px)" }
+        ];
+        this.moveAnimation.target = this;
+        this.moveAnimation.play();
+      }
+      */
+    });
+  </script>
+</polymer-element>
+

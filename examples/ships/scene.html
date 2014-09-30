@@ -1,0 +1,294 @@
+
+<!--
+<link rel="import" href="../../components/core-drag-drop/core-drag-drop.html">
+-->
+
+<polymer-element name="bright-scene" noscript>
+  <template>
+
+    <style>
+
+      polyfill-next-selector { content: '.bright-scene'; }
+      :host {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      polyfill-next-selector { content: '.bright-scene bright-sky'; }
+      ::content bright-sky {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+      }
+      polyfill-next-selector { content: '.bright-scene bright-dock'; }
+      ::content bright-dock {
+        position: absolute;
+        bottom: 4em;
+        left: 0;
+      }
+
+      polyfill-next-selector { content: '.bright-scene bright-sea'; }
+      ::content bright-sea {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        pointer-events: none;
+      }
+
+      polyfill-next-selector { content: '.bright-scene bright-ship'; }
+      ::content bright-ship {
+        cursor: pointer;
+        pointer-events: auto;
+      }
+
+    </style>
+
+    <!--
+    <core-drag-drop></core-drag-drop>
+    -->
+
+    <div class="bright-scene">
+      <content></content>
+    </div>
+
+  </template>
+  <script>
+    Polymer({
+
+      alpha: undefined,
+      beta: undefined,
+      gamma: undefined,
+      fleet: undefined,
+
+      domReady: function() {
+
+        this.fleet = this.querySelectorAll("bright-sea bright-ship");
+
+        function onOrientationChange(e) {
+
+          // Ignore minor changes in orientation
+          if ((Math.abs(e.beta - (this.beta || 0)) < 3) && (Math.abs(e.gamma - (this.gamma || 0)) < 3)) {
+            return;
+          }
+
+          this.alpha = e.alpha; // Direction? (North, South, East, West)
+          this.beta  = e.beta;  // Tilt forward/backward
+          this.gamma = e.gamma; // Tile left/right
+
+          _onOrientationChange(this.alpha, this.beta, this.gamma, this.fleet);
+
+        };
+
+        function _onOrientationChange(alpha, beta, gamma, fleet) {
+
+          var width  = document.documentElement.clientWidth;
+          var height = document.documentElement.clientHeight;
+
+          var hasOrientation = window.orientation != undefined;
+
+          // Landscape
+          if (width > height && hasOrientation) {
+
+            if (beta > 0) {
+              for (var index = 0; index < fleet.length; index++) {
+                fleet[index].advance();
+              }
+            } else {
+              for (var index = 0; index < fleet.length; index++) {
+                fleet[index].retreat();
+              }
+            }
+            
+          // Portrait
+          } else {
+
+            if (gamma > 0) {
+              for (var index = 0; index < fleet.length; index++) {
+                fleet[index].advance();
+              }
+            } else {
+              for (var index = 0; index < fleet.length; index++) {
+                fleet[index].retreat();
+              }
+            }
+
+          }
+
+        }
+
+        window.addEventListener("deviceorientation", onOrientationChange.bind(this), false);
+
+
+      /*
+      function onOrientationChange(e) {
+
+        // Ignore minor changes in orientation
+        if ((Math.abs(e.beta - (beta || 0)) < 3) && (Math.abs(e.gamma - (gamma || 0)) < 3)) {
+          return;
+        }
+
+        alpha = e.alpha; // Direction? (North, South, East, West)
+        beta  = e.beta;  // Tilt forward/backward
+        gamma = e.gamma; // Tile left/right
+
+        _onOrientationChange(alpha, beta, gamma);
+
+      };
+
+      function _onOrientationChange(alpha, beta, gamma) {
+
+        var width  = document.documentElement.clientWidth;
+        var height = document.documentElement.clientHeight;
+
+        var betaMax  = Math.round(90  / 8);
+        var gammaMax = Math.round(180 / 8);
+
+        if (beta > betaMax) beta = betaMax;
+        if (beta < -betaMax) beta = -betaMax;
+
+        if (gamma > gammaMax) gamma = gammaMax;
+        if (gamma < -gammaMax) gamma = -gammaMax;
+
+
+        // Landscape
+        if (width > height) {
+
+          // Optimize for an upright device
+          gamma = gamma + gammaMax / 2;
+
+          target_cursor_x = Math.round(width/2   + (width/2  * -beta/90));
+          target_cursor_y = Math.round(height/2  + (height/2 * -gamma/180));
+
+        // Portrait
+        } else {
+
+          // Optimize for an upright device
+          beta = beta - betaMax / 2;
+
+          target_cursor_x = Math.round(width/2   + (width/2  * -gamma/180));
+          target_cursor_y = Math.round(height/2  + (height/2 * -beta/90));
+        }
+
+        var increment = Math.abs(cursor_x - target_cursor_x) / duration;
+        if (cursor_x - target_cursor_x < 5) {
+          cursor_x = target_cursor_x;
+        } else {
+          if (cursor_x < target_cursor_x) cursor_x += Math.round(increment);
+          if (cursor_x > target_cursor_x) cursor_x -= Math.round(increment);
+        }
+
+        var increment = Math.abs(cursor_y - target_cursor_y) / duration;
+        if (cursor_y - target_cursor_y < 5) {
+          cursor_y = target_cursor_y;
+        } else {
+          if (cursor_y < target_cursor_y) cursor_y += Math.round(increment);
+          if (cursor_y > target_cursor_y) cursor_y -= Math.round(increment);
+        }
+      }
+
+      window.addEventListener("deviceorientation", onOrientationChange, false);
+      */
+
+
+      this.addEventListener("click", function(e) {
+
+        if (e.target.nodeName.toLowerCase() === "bright-ship") {
+          var ship = e.target;
+          var dock = this.querySelector("bright-dock");
+          var sea  = this.querySelector("bright-sea");
+          if (ship.parentNode === dock) {
+            dock.removeChild(ship);
+            sea.appendChild(ship);
+            ship.toss();
+          } else if (ship.parentNode === sea) {
+            sea.removeChild(ship);
+            dock.appendChild(ship);
+            ship.stopTossing();
+          }
+        }
+
+      }, false);
+
+
+if (false) {
+
+        function within(needle, haystack) {
+ 
+          // If the parent element is the target
+          if (needle === haystack) {
+            return true;
+         
+          } else {
+
+            // If any of the children are the target
+            if (haystack.firstChild) {
+              var child = haystack.firstChild;
+              do {
+                if (within(needle, child)) return true;
+              } while(child = child.nextSibling);
+            }
+
+            // If the target is inside this element’s shadow DOM
+            if (haystack.shadowRoot && within(needle, haystack.shadowRoot)) return true;
+          }
+         
+        }
+
+        var dock = this.querySelector("bright-dock");
+        var sea  = this.querySelector("bright-sea");
+
+        this.addEventListener("drag-start", function(e) {
+          console.log("drag");
+
+          var dragInfo = e.detail;
+
+
+          if (dragInfo.event.target.nodeName.toLowerCase() === "bright-ship") {
+            var ship = dragInfo.event.target;
+
+            e.detail.avatar.innerHTML = "";
+            e.detail.avatar.appendChild(ship.cloneNode(true));
+
+            dragInfo.drag = function() {};
+            dragInfo.drop = function(dragInfo) {
+
+              console.log("drop");
+
+              var dropTarget = dragInfo.event.relatedTarget;
+
+              if (ship.parentNode === sea) {
+                ship.parentNode.removeChild(ship);
+                dock.appendChild(ship);
+                ship.stopTossing();
+              } else {
+                ship.parentNode.removeChild(ship);
+                sea.appendChild(ship);
+                ship.toss();
+              }
+
+              /*
+              if (within(dropTarget, sea)) {
+                ship.parentNode.removeChild(ship);
+                sea.appendChild(ship);
+                ship.toss();
+              } else if (within(dropTarget, dock)) {
+                ship.parentNode.removeChild(ship);
+                dock.appendChild(ship);
+                ship.stopTossing();
+              }
+              */
+            };
+          }
+
+        });
+}
+
+      }
+    });
+  </script>
+</polymer-element>
