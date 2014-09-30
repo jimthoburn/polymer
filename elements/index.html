@@ -2,8 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
-  <title>Polymer Cheat Sheet</title>
-
+  <title>Polymer Elements</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -21,7 +20,7 @@
       color: #889faf;
     }
     body {
-      max-width: 33em;
+      max-width: 40em;
       margin: 0 auto;
     }
     section {
@@ -45,10 +44,10 @@
     pre {
       background: #dae1be;
       border-radius: 2px;
-      padding: 0.5em 1em;
       position: relative;
       white-space: pre-wrap;
       word-wrap: break-word; /* For Internet Explorer */
+      padding: 1.5em;
     }
     .note {
       color: #cd7c69;
@@ -75,46 +74,19 @@
   <link rel="import" href="../components/core-selector/core-selector.html" />
   <link rel="import" href="../components/core-list/core-list.html" />
 
-
-  <style>
-    body {
-      font: 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
-      margin: 3em;
-    }
-    h2 {
-      margin-top: 6em;
-    }
-    body > h3 {
-      margin-top: 3em;
-    }
-    pre {
-      background: rgb(235, 235, 235);
-      padding: 1.5em;
-    }
-    google-map {
-      display: block;
-      width: 400px;
-      height: 400px;
-    }
-  </style>
-
 </head>
 <body>
 
-<h2>Elements</h2>
+<h1>Polymer Elements</h1>
 
-<p><a href="https://www.polymer-project.org/components/core-elements/demo.html#core-scroll-header-panel">Core Elements</a></p>
-
-<p><a href="https://www.polymer-project.org/components/paper-elements/demo.html">Paper Elements</a></p>
-
-<h3>Timestamp</h3>
+<h2>Timestamp</h2>
 <time datetime="2001-05-15 19:00">May 15</time>
 <pre><code>&lt;time datetime=&quot;2001-05-15 19:00&quot;&gt;May 15&lt;/time&gt;
 </code></pre>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time">Time on MDN</a></p>
 
 
-<h3>Daily Observation / Lesson / Decision (Text)</h3>
+<h2>Daily Observation / Lesson / Decision (Text)</h2>
 <p>Today I decided to make a list of elements that can be used to piece together an app; a bit like a list of ingredients.</p>
 <p>My goal is to make it easy to implement different interface ideas.</p>
 <pre><code>&lt;p&gt;Today I decided to make a list of elements that can be used to piece together an app; a bit like a list of ingredients.&lt;/p&gt;
@@ -122,13 +94,23 @@
 </code></pre>
 
 
-<h3>Location / (Latitude, Longitude / Place Name)</h3>
-<!-- https://github.com/GoogleWebComponents/google-map/blob/master/google-map.html -->
+<h2>Location / (Latitude, Longitude / Place Name)</h2>
+
+<style>
+  google-map {
+    display: block;
+    width: 400px;
+    height: 400px;
+  }
+</style>
+
 <google-map latitude="37.77493" longitude="-122.41942"></google-map>
 <pre><code>&lt;google-map latitude=&quot;37.77493&quot; longitude=&quot;-122.41942&quot;&gt;&lt;/google-map&gt;</code></pre>
 
+<p class="note"><a href="http://googlewebcomponents.github.io/">Google Web Components</a></p>
 
-<h3>Team Member / Author (Username / Full Name)</h3>
+
+<h2>Team Member / Author (Username / Full Name)</h2>
 <link rel="import" href="avatars.html" />
 <p>Posted by Jim <core-icon icon="avatars:cat" style="width: 36px; height: 36px; margin-left: 12px;"></core-icon></p>
 
@@ -137,7 +119,7 @@
 
 
 
-<h3>Name</h3>
+<h2>Name</h2>
 <!-- http://www.polymer-project.org/docs/elements/paper-elements.html#paper-input -->
 
 <paper-input label="Your name"></paper-input>
@@ -145,7 +127,7 @@
 <pre><code>&lt;paper-input label=&quot;Your name&quot;&gt;&lt;/paper-input&gt;
 </code></pre>
 
-<h3>Text</h3>
+<h2>Text</h2>
 <paper-input multiline label="What are your (multiline) thoughts?"></paper-input>
 
 <pre><code>&lt;paper-input multiline label=&quot;What are your (multiline) thoughts?&quot;&gt;&lt;/paper-input&gt;
@@ -154,34 +136,34 @@
 <paper-input multiline label="What are your (multiline) thoughts?" value="Today I decided to make a list of elements that can be used to piece together an app…"></paper-input>
 
 
-<h3>Email</h3>
+<h2>Email</h2>
 <paper-input type="email" label="Email address"></paper-input>
 
 <pre><code>&lt;paper-input type=&quot;email&quot; label=&quot;Email address&quot;&gt;&lt;/paper-input&gt;
 </code></pre>
 
 
-<h3>Password</h3>
+<h2>Password</h2>
 <paper-input type="Password" label="Password"></paper-input>
 
 <pre><code>&lt;paper-input type=&quot;password&quot; label=&quot;Password&quot;&gt;&lt;/paper-input&gt;
 </code></pre>
 
 
-<h3>Submit Button</h3>
+<h2>Submit Button</h2>
 <!-- http://www.polymer-project.org/docs/elements/paper-elements.html#paper-button -->
 <paper-button raisedButton label="Submit"></paper-button>
 <pre><code>&lt;paper-button raisedButton label=&quot;Submit&quot;&gt;&lt;/paper-button&gt;
 </code></pre>
 
 
-<h3>Cancel Button</h3>
+<h2>Cancel Button</h2>
 <paper-button label="Cancel"></paper-button>
 <pre><code>&lt;paper-button label=&quot;Cancel&quot;&gt;&lt;/paper-button&gt;
 </code></pre>
 
 
-<h3>Progress</h3>
+<h2>Progress</h2>
 <paper-progress value="10"></paper-progress>
 
 <pre><code>&lt;paper-progress value=&quot;10&quot;&gt;&lt;/paper-progress&gt;
@@ -189,7 +171,7 @@
 
 
 
-<h3>Photo</h3>
+<h2>Photo</h2>
 <figure>
   <img src="http://www.crystalinks.com/windmills.jpg" width="600" height="398" alt="" />
   <figcaption>I found some windmills on a hilltop yesterday.</figcaption>
@@ -202,7 +184,7 @@
 </code></pre>
 
 
-<h3>Video</h3>
+<h2>Video</h2>
 <figure>
   <iframe width="640" height="480" src="//www.youtube.com/embed/OeP4FFr88SQ" frameborder="0" allowfullscreen></iframe>
   <figcaption>Bob is an amazing songwriter.</figcaption>
@@ -215,7 +197,7 @@
 </code></pre>
 
 
-<h3>Social Site Name</h3>
+<h2>Social Site Name</h2>
 
 <link rel="import" href="social.html" />
 
@@ -240,9 +222,9 @@
 
 
 
-<h2>Components</h2>
+<h1>Components</h1>
 
-<h3>Social Site (Name, Tags for Import)</h3>
+<h2>Social Site (Name, Tags for Import)</h2>
 
 <style>
 .tag-list,
@@ -273,7 +255,7 @@
 
 
 
-<h3>Chronological List</h3>
+<h2>Chronological List</h2>
 
 <style>
 .post-list,
@@ -319,11 +301,10 @@
 &lt;/article&gt;
 </code></pre>
 
-
 <!--
 https://www.polymer-project.org/docs/elements/core-elements.html#core-list
 
-<h3>Infinite List</h3>
+<h2>Infinite List</h2>
 
 <ul class="post-list">
   <core-list id="list" height="80">
@@ -331,7 +312,7 @@ https://www.polymer-project.org/docs/elements/core-elements.html#core-list
       <li class="{{ {selected: selected} | tokenList }}">
         <article>
           <paper-shadow></paper-shadow>
-          <h3><time datetime="2001-05-15 19:00">Today</time></h3>
+          <h2><time datetime="2001-05-15 19:00">Today</time></h2>
           <p>Today I decided to make a list of elements that can be used to piece together an app; a bit like a list of ingredients.</p>
           <p>My goal is to make it easy to implement different interface ideas.</p>
         </article>
@@ -343,7 +324,7 @@ https://www.polymer-project.org/docs/elements/core-elements.html#core-list
 
 
 
-<h3>Navigation</h3>
+<h2>Navigation</h2>
 
 <style>
 #navigation li {
@@ -389,7 +370,7 @@ https://www.polymer-project.org/docs/elements/core-elements.html#core-list
 
 
 <!--
-<h3>Social Accounts List</h3>
+<h2>Social Accounts List</h2>
 
 <ul class="social-list">
   <li>
@@ -402,21 +383,25 @@ https://www.polymer-project.org/docs/elements/core-elements.html#core-list
 
 
 <!-- 
-<h3>Status</h3>
+<h2>Status</h2>
 http://www.polymer-project.org/docs/elements/paper-elements.html#paper-toast -->
 
 <!-- 
-<h3>Dialog</h3>
+<h2>Dialog</h2>
 http://www.polymer-project.org/docs/elements/paper-elements.html#paper-dialog -->
 
 <!--
-<h3>Toolbar</h3>
+<h2>Toolbar</h2>
 https://www.polymer-project.org/docs/elements/core-elements.html#core-toolbar -->
 
 <!--
-<h3>Header</h3>
+<h2>Header</h2>
 https://www.polymer-project.org/docs/elements/core-elements.html#core-scroll-header-panel -->
 
+
+<h1>Further Reading</h1>
+<p><a href="https://www.polymer-project.org/components/core-elements/demo.html#core-scroll-header-panel">Core Elements</a></p>
+<p><a href="https://www.polymer-project.org/components/paper-elements/demo.html">Paper Elements</a></p>
 
 
 </body>
