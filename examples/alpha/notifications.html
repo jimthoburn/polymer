@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>Today</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script src="../../components/platform/platform.js"></script>
+
+  <link rel="import" href="../../components/polymer/polymer.html" />
+  <link rel="import" href="../../components/core-scaffold/core-scaffold.html" />
+  <link rel="import" href="../../components/core-header-panel/core-header-panel.html" />
+  <link rel="import" href="../../components/core-toolbar/core-toolbar.html" />
+  <link rel="import" href="../../components/core-menu/core-menu.html" />
+  <link rel="import" href="../../components/core-item/core-item.html" />
+
+  <style>
+    body {
+      font: 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    html /deep/ core-toolbar {
+      background-color: black;
+      color: white;
+    }
+    h1 {
+      font-size: inherit;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    .notifications ul,
+    .notifications li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .notifications .item {
+      position: relative;
+      display: block;
+      color: white;
+    }
+    .notifications .item img {
+      display: block;
+    }
+    .notifications .item > span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 1.5em;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: flex-start;
+      align-items: flex-start;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    @media (min-width: 50em) and (min-height: 50em) {
+      .notifications .item > span {
+        font-size: 4vmax;
+      }
+    }
+    .notifications .item b {
+      display: block;
+    }
+    .notifications .item:nth-child(1n) b {
+      color: rgb(246, 179, 65);
+    }
+    .notifications .item:nth-child(2n) b {
+      color: rgb(146, 249, 131);
+    }
+    .notifications .item:nth-child(3n) b {
+      color: rgb(251, 227, 81);
+    }
+    .notifications .item:nth-child(4n) b {
+      color: rgb(121, 211, 241);
+    }
+  </style>
+
+</head>
+<body fullbleed unresolved>
+
+<core-scaffold responsiveWidth="60em">
+
+  <core-header-panel navigation flex mode="seamed">
+    <core-toolbar>Aldo</core-toolbar>
+    <core-menu theme="core-light-theme" selected="2">
+      <core-item label="New Push"></core-item>
+      <core-item label="Your Stories"></core-item>
+      <core-item label="Notifications"></core-item>
+    </core-menu>
+  </core-header-panel>
+
+  <h1 tool>Today</h1>
+
+  <core-selector class="notifications">
+    <ul>
+      <li class="item">
+        <img src="images/15164494749_0d12ca29e0_k.jpg" alt="" />
+        <span>
+          <span>
+            More love for
+            <b>Neighborhood Remarks: Echo Park</b>
+          </span>
+        </span>
+       </li>
+      <li class="item">
+        <img src="images/15167859928_b87cd57710_k.jpg" alt="" />
+        <span>
+          <span>
+            New stories near
+            <b>Echo Park</b>
+          </span>
+        </span>
+      </li>
+      <li class="item">
+        <img src="images/15332247156_0c85b29385_o.jpg" alt="" />
+        <span>
+          <span>
+            The latest from
+            <b>CicLAvia</b>
+          </span>
+        </span>
+      </li>
+      <li class="item">
+        <img src="images/15348772291_bb0f3af931_k.jpg" alt="" />
+        <span>
+          <span>
+            Top pushes for
+            <b>Neighborhoods</b>
+          </span>
+        </span>
+      </li>
+    </ul>
+  </core-selector>
+
+</core-scaffold>
+
+<!--
+<core-drawer-panel rightDrawer>
+  <div drawer>
+    Aldo
+    <img src="" alt="" />
+    <ul>
+      <li><a href="">New Push</a></li>
+      <li><a href="">Your Stories</a></li>
+      <li><a href="">Notifications</a></li>
+    </ul>
+  </div>
+  <div main>
+    <h1>Today</h1>
+  </div>
+</core-drawer-panel>
+
+  <nav>
+    Aldo
+    <img src="" alt="" />
+    <ul>
+      <li><a href="">New Push</a></li>
+      <li><a href="">Your Stories</a></li>
+      <li><a href="">Notifications</a></li>
+    </ul>
+  </nav>
+-->
+
+<!--
+
+<core-toolbar>
+  <core-menu-button selected="0">
+    <core-item icon="settings" label="Settings"></core-item>
+    <core-item icon="dialog" label="Dialog"></core-item>
+    <core-item icon="search" label="Search"></core-item>
+  </core-menu-button>
+
+  <paper-menu-button icon="menu" notransition>
+    <paper-item label="Menu Item 1"></paper-item>
+    <paper-item label="Menu Item 2"></paper-item>
+    <paper-item label="Menu Item 3"></paper-item>
+  </paper-menu-button>
+
+</core-toolbar>
+
+  <ul>
+    <li>
+      <a href="">
+        More love for
+        <b>Neighborhood Remarks: Echo Park</b>
+      </a>
+     </li>
+    <li>
+      <a href="">
+        New stories near
+        <b>Echo Park</b>
+      </a>
+    </li>
+    <li>
+      <a href="">
+        The latest from
+        <b>CicLAvia</b>
+      </a>
+    </li>
+    <li>
+      <a href="">
+        Top pushes for
+        <b>Neighborhoods</b>
+      </a>
+    </li>
+  </ul>
+-->
+
+</body>
+</html>

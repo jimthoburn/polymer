@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>New Push</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script src="../../components/platform/platform.js"></script>
+
+  <link rel="import" href="../../components/polymer/polymer.html" />
+  <link rel="import" href="../../components/core-icons/core-icons.html" />
+  <link rel="import" href="../../components/core-pages/core-pages.html" />
+  <link rel="import" href="../../components/core-toolbar/core-toolbar.html" />
+  <link rel="import" href="../../components/paper-input/paper-input.html" />
+  <link rel="import" href="../../components/paper-button/paper-button.html" />
+  <link rel="import" href="../../components/paper-toggle-button/paper-toggle-button.html" />
+  <link rel="import" href="../../components/paper-dropdown-menu/paper-dropdown-menu.html" />
+  <link rel="import" href="../../components/paper-item/paper-item.html" />
+  <link rel="import" href="../../components/paper-fab/paper-fab.html" />
+
+  <style>
+    body {
+      font: 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: rgb(119, 215, 249);
+      margin: 0;
+      padding: 1em;
+    }
+    core-toolbar {
+      background: transparent;
+    }
+    core-toolbar h1 {
+      color: rgb(72, 129, 150);
+    }
+    core-toolbar paper-fab {
+      background: black;
+      color: white;
+    }
+    img.avatar {
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-right: 0.5em;
+      width: 3em;
+      height: 3em;
+    }
+
+    paper-dropdown-menu,
+    paper-input {
+      width: 100%;
+    }
+
+    .participants h6 {
+      font-size: inherit;
+      margin-bottom: 0.75em;
+    }
+    .participants ul,
+    .participants li {
+      list-style: none;
+      padding-left: 0;
+    }
+    .participants ul {
+      margin-top: 0;
+    }
+    .participants li + li {
+      margin-top: 1.5em;
+    }
+    .participants paper-button {
+      text-transform: none;
+    }
+
+    .progress {
+      text-align: center;
+      margin-top: 3em;
+      margin-bottom: 1.5em;
+    }
+
+    .secret label {
+      margin-right: 1em;
+    }
+
+
+    /*
+    form > div {
+      height: 50vh;
+      min-height: -webkit-min-content;
+      min-height: min-content;
+    }
+    */
+
+    form > div {
+      background: white;
+      padding: 1em;
+      max-width: 25em;
+      margin: 1em auto;
+    }
+
+    form paper-button.primary {
+      background: black;
+      color: white;
+      width: 100%;
+    }
+
+
+
+  </style>
+
+</head>
+<body unresolved>
+
+<core-toolbar>
+  <h1>New Push</h1>
+  <div flex></div>
+  <paper-fab icon="close"></paper-fab>
+</core-toolbar>
+
+<div vertical layout>
+  <core-pages selected="0" flex>
+
+    <form>
+      <div>
+        <div>
+          <paper-input label="Name"></paper-input>
+
+          <paper-input label="What are you pushing towards?" multiline></paper-input>
+        </div>
+
+        <p class="progress">Step 1 of 2</p>
+
+        <paper-button class="primary">Next</paper-button>
+      </div>
+    </form>
+
+    <form>
+      <div>
+        <div>
+          <paper-dropdown-menu label="What kina push is it?">
+            <paper-item label="Project"></paper-item>
+            <paper-item label="Story"></paper-item>
+          </paper-dropdown-menu>
+
+          <p class="secret">
+            <label>Secret?</label>
+            <paper-toggle-button></paper-toggle-button>
+          </p>
+
+          <div class="participants">
+            <h6>Participants</h6>
+            <ul>
+              <li><paper-button icon="add" raisedButton>Invite a friend</paper-button></li>
+              <li>
+                <img class="avatar" src="http://assets.goodstatic.com/s3/prod/users/avatars/002/128/383/original/me.jpeg=c60x60" alt="" />
+                <strong>Aldo</strong>
+                <small>(you started this push)</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="progress">Step 2 of 2</p>
+
+        <paper-button class="primary">Push</paper-button>
+      </div>
+    </form>
+
+  </core-pages>
+</div>
+
+<script>
+  document.addEventListener('click', function(e) {
+    if (e.target.nodeName.toLowerCase() == "paper-button") {
+      var pages = document.querySelector('core-pages');
+      pages.selected = (pages.selected + 1) % pages.children.length;
+    }
+  });
+</script>
+
+</body>
+</html>

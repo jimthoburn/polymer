@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>Neighborhood Remarks: Echo Park</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script src="../../components/platform/platform.js"></script>
+
+  <link rel="import" href="../../components/polymer/polymer.html" />
+  <link rel="import" href="../../components/core-icon/core-icon.html" />
+  <link rel="import" href="../../components/core-icons/core-icons.html" />
+  <link rel="import" href="../../components/core-toolbar/core-toolbar.html" />
+  <link rel="import" href="../../components/paper-fab/paper-fab.html" />
+
+  <style>
+    body {
+      font: 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .message {
+      background: rgb(247, 247, 247);
+      color: rgb(205, 204, 205);
+      padding: 1.5em;
+    }
+
+    h1 {
+      margin: 1em;
+    }
+
+    .message h2 {
+      font-size: 5em;
+      line-height: 1;
+      max-width: 10em;
+    }
+    .message core-icon {
+      display: block;
+      transform: rotate(90deg);
+      width: 1em;
+      height: 1em;
+      margin: 0.25em auto 0;
+    }
+
+    paper-fab {
+      display: block;
+      background: black;
+      color: white;
+      margin: 1em auto;
+    }
+
+  </style>
+
+</head>
+<body fullbleed unresolved>
+
+<section class="push">
+
+  <h1>Neighborhood Remarks: Echo Park</h1>
+
+  <section class="message" layout vertical center>
+    <h2>
+      Add stories below
+      <core-icon icon="arrow-forward"></core-icon>
+    </h2>
+  </section>
+
+  <paper-fab icon="add"></paper-fab>
+
+</section>
+
+</body>
+</html>
