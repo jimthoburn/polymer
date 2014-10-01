@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
-  <title>Polymer Elements</title>
+  <title>Elements</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -77,25 +77,10 @@
 </head>
 <body>
 
-<h1>Polymer Elements</h1>
+<h1>Elements</h1>
 
 
-<h2>Timestamp</h2>
-<time datetime="2001-05-15 19:00">May 15</time>
-<pre><code>&lt;time datetime=&quot;2001-05-15 19:00&quot;&gt;May 15&lt;/time&gt;
-</code></pre>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time">Time on MDN</a></p>
-
-
-<h2>Daily Observation / Lesson / Decision (Text)</h2>
-<p>Today I decided to make a list of elements that can be used to piece together an app; a bit like a list of ingredients.</p>
-<p>My goal is to make it easy to implement different interface ideas.</p>
-<pre><code>&lt;p&gt;Today I decided to make a list of elements that can be used to piece together an app; a bit like a list of ingredients.&lt;/p&gt;
-&lt;p&gt;My goal is to make it easy to implement different interface ideas.&lt;/p&gt;
-</code></pre>
-
-
-<h2>Location / (Latitude, Longitude / Place Name)</h2>
+<h2>Location</h2>
 
 <style>
   google-map {
@@ -111,13 +96,53 @@
 <p class="note"><a href="http://googlewebcomponents.github.io/">Google Web Components</a></p>
 
 
-<h2>Team Member / Author (Username / Full Name)</h2>
+<h2>Photo</h2>
+<figure>
+  <img src="http://www.crystalinks.com/windmills.jpg" width="600" height="398" alt="" />
+  <figcaption>I found some windmills on a hilltop yesterday.</figcaption>
+</figure>
+
+<pre><code>&lt;figure&gt;
+  &lt;img src=&quot;http://www.crystalinks.com/windmills.jpg&quot; width=&quot;600&quot; height=&quot;398&quot; alt=&quot;&quot; /&gt;
+  &lt;figcaption&gt;I found some windmills on a hilltop yesterday.&lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre>
+
+
+<h2>Video</h2>
+<figure>
+  <iframe width="640" height="480" src="//www.youtube.com/embed/OeP4FFr88SQ" frameborder="0" allowfullscreen></iframe>
+  <figcaption>Bob is an amazing songwriter.</figcaption>
+</figure>
+
+<pre><code>&lt;figure&gt;
+  &lt;iframe width=&quot;640&quot; height=&quot;480&quot; src=&quot;//www.youtube.com/embed/OeP4FFr88SQ&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+  &lt;figcaption&gt;Bob is an amazing songwriter.&lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre>
+
+
+<h2>Text</h2>
+<p>Today I decided to make a list of elements that can be used to piece together an app; a bit like a list of ingredients.</p>
+<p>My goal is to make it easy to implement different interface ideas.</p>
+<pre><code>&lt;p&gt;Today I decided to make a list of elements that can be used to piece together an app; a bit like a list of ingredients.&lt;/p&gt;
+&lt;p&gt;My goal is to make it easy to implement different interface ideas.&lt;/p&gt;
+</code></pre>
+
+
+<h2>Timestamp</h2>
+<time datetime="2001-05-15 19:00">May 15</time>
+<pre><code>&lt;time datetime=&quot;2001-05-15 19:00&quot;&gt;May 15&lt;/time&gt;
+</code></pre>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time">Time on MDN</a></p>
+
+
+<h2>Avatar</h2>
 <link rel="import" href="avatars.html" />
 <p>Posted by Jim <core-icon icon="avatars:cat" style="width: 36px; height: 36px; margin-left: 12px;"></core-icon></p>
 
 <pre><code>&lt;p&gt;Posted by Jim &lt;core-icon icon=&quot;avatars:cat&quot;&gt;&lt;/core-icon&gt;&lt;/p&gt;
 </code></pre>
-
 
 
 <h2>Name</h2>
@@ -150,6 +175,8 @@
 <pre><code>&lt;paper-input type=&quot;password&quot; label=&quot;Password&quot;&gt;&lt;/paper-input&gt;
 </code></pre>
 
+<p class="note"><a href="https://www.polymer-project.org/components/paper-elements/demo.html#paper-input">More input examples</a></p>
+
 
 <h2>Submit Button</h2>
 <!-- http://www.polymer-project.org/docs/elements/paper-elements.html#paper-button -->
@@ -171,36 +198,12 @@
 </code></pre>
 
 
-
-<h2>Photo</h2>
-<figure>
-  <img src="http://www.crystalinks.com/windmills.jpg" width="600" height="398" alt="" />
-  <figcaption>I found some windmills on a hilltop yesterday.</figcaption>
-</figure>
-
-<pre><code>&lt;figure&gt;
-  &lt;img src=&quot;http://www.crystalinks.com/windmills.jpg&quot; width=&quot;600&quot; height=&quot;398&quot; alt=&quot;&quot; /&gt;
-  &lt;figcaption&gt;I found some windmills on a hilltop yesterday.&lt;/figcaption&gt;
-&lt;/figure&gt;
-</code></pre>
-
-
-<h2>Video</h2>
-<figure>
-  <iframe width="640" height="480" src="//www.youtube.com/embed/OeP4FFr88SQ" frameborder="0" allowfullscreen></iframe>
-  <figcaption>Bob is an amazing songwriter.</figcaption>
-</figure>
-
-<pre><code>&lt;figure&gt;
-  &lt;iframe width=&quot;640&quot; height=&quot;480&quot; src=&quot;//www.youtube.com/embed/OeP4FFr88SQ&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-  &lt;figcaption&gt;Bob is an amazing songwriter.&lt;/figcaption&gt;
-&lt;/figure&gt;
-</code></pre>
-
-
-<h2>Social Site Name</h2>
+<h2>Social Icons</h2>
 
 <link rel="import" href="social.html" />
+
+<pre><code>&lt;link rel=&quot;import&quot; href=&quot;…social.html&quot; /&gt;
+</code></pre>
 
 <core-icon icon="social:twitter"></core-icon>
 
@@ -212,13 +215,14 @@
 <pre><code>&lt;paper-button icon=&quot;social:twitter&quot; raisedButton label=&quot;Connect&quot;&gt;&lt;/paper-button&gt;
 </code></pre>
 
-<p class="note"><a href="social.html">Social Icons</a> (import these with a <code>&lt;link&gt;</code> element.)</p>
+<p class="note"><a href="social.html">Social Icons</a></p>
 
 <core-icon icon="social:facebook"></core-icon>
 <core-icon icon="social:linkedin"></core-icon>
 <core-icon icon="social:instagram"></core-icon>
 <core-icon icon="social:tumblr"></core-icon>
 <core-icon icon="social:youtube"></core-icon>
+
 
 <!--
 <h4>This icon is decorative, so it has an empty “alt” attribute</h4>
