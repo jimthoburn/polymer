@@ -37,8 +37,18 @@
       polyfill-next-selector { content: '.body img'; }
       .body ::content img {
         display: block;
-        max-width: 100%;
+        max-width: calc(100% + 3em);
         height: auto;
+
+        /* OPTIONAL: Make the image go all the way to the edges */
+        margin-left: -1.5em;
+        margin-right: -1.5em;
+      }
+      polyfill-next-selector { content: '.body img'; }
+      .body ::content img:first-child {
+
+        /* OPTIONAL: Make the image go all the way to the edges */
+        margin-top: -1.5em;
       }
       .body {
         padding: 1.5em;
