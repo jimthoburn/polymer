@@ -6,78 +6,259 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600,600italic,700,700italic" rel="stylesheet" type="text/css" />
+  <script src="../../components/platform/platform.js"></script>
+  <link rel="import" href="../../components/polymer/polymer.html" />
+
+  <link rel="import" href="../../components/core-icons/core-icons.html" />
+  <link rel="import" href="../../components/core-toolbar/core-toolbar.html" />
+
+  <link rel="import" href="../../components/paper-button/paper-button.html" />
+  <link rel="import" href="../../components/paper-icon-button/paper-icon-button.html" />
+  <link rel="import" href="../../components/paper-item/paper-item.html" />
+  <link rel="import" href="../../components/paper-menu-button/paper-menu-button.html" />
+  <link rel="import" href="../../components/paper-shadow/paper-shadow.html" />
+
+  <link rel="import" href="social.html" />
 
   <style>
-    html, body {
-      min-height: 100%;
-    }
+
     body {
-      background: white;
-      font: 125%/normal "Crimson Text", Georgia, Times, "Times New Roman", serif;
+      font: 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+
+    /* =Header
+    ----------------------------------------------- */
+    .header {
+      background-color: rgb(246, 246, 246);
+    }
+    .header h1 {
+      font-size: inherit;
+    }
+    .header paper-icon-button {
+      color: rgb(255, 80, 133);
+    }
+    .header paper-icon-button::shadow core-icon {
+      width: 2em;
+      height: 2em;
+    }
+
+
+    /* =Posts
+    ----------------------------------------------- */
+    .post-list,
+    .post-list li {
+      list-style: none;
+      padding-left: 0;
+    }
+    .post-list {
+      margin: 0 0 3em;
+    }
+    .post-list li {
+      margin: 10px auto;
+      padding: 0 10px;
+      max-width: 40em;
+    }
+    .post-list header {
+      border-bottom: 1px solid white;
+      align-items: center;
+    }
+    .post-list h3 {
       margin: 0;
-      padding: 1.5em 1.5em 3em;
-      color: #4d4d4d;
+      font-weight: inherit;
+      font-style: inherit;
+      font-size: 0.875em;
+      padding: 0 10px;
     }
-    a {
-      color: #889faf;
+    .post-list time {
+      opacity: 0.25;
     }
-    body {
-      max-width: 33em;
-      margin: 3em auto;
+    .post-list time:before {
+      content: "•";
+      margin: 0 0.5em;
     }
-    section {
-      margin-top: 4em;
+    .post-list paper-icon-button {
+      color: white;
     }
-    h1, h2, h3, h4, h5, h6 {
-      font-weight: normal;
+
+
+    /* =Post Body
+    ----------------------------------------------- */
+    .post-list img {
+      display: block;
+      max-width: 100%;
+      height: auto;
     }
-    h1 {
-      margin-top: 2.4em;
-      font-size: 200%;
+    .post-list .body {
+      padding: 1.5em;
+      font-size: 1.125em;
     }
-    h1:first-child {
+    .post-list .body p:first-child {
       margin-top: 0;
     }
-    h2 {
-      font-size: 150%;
-      margin-top: 2em;
-      margin-bottom: 0.5em;
+    .post-list .body p:last-child {
+      margin-bottom: 0;
     }
-    pre {
-      background: #dae1be;
-      border-radius: 2px;
-      padding: 0.5em 1em;
-      position: relative;
-      white-space: pre-wrap;
-      word-wrap: break-word; /* For Internet Explorer */
+    .post-list .twitter .body {
+      text-align: center;
+      font-size: 1.5em;
     }
-    .note {
-      color: #cd7c69;
+
+
+    /* =Colors
+    ----------------------------------------------- */
+    .post-list article {
+      background-color: rgb(204, 204, 204);
     }
-    .next {
-      text-align: right;
-      margin-top: 3em;
-      border-top: 1px solid #ccc;
-      padding-top: 1.5em;
+    .post-list footer {
+      background-color: rgb(153, 153, 153);
     }
-    .next:after {
-      content: " →";
+    .sky article {
+      background-color: rgb(105, 215, 243);
     }
+    .sky.twitter .body {
+      color: white;
+    }
+    .sky footer {
+      background-color: rgb(92, 205, 245);
+    }
+    .banana article {
+      background-color: rgb(254, 231, 82);
+    }
+    .banana footer {
+      background-color: rgb(254, 228, 0);
+    }
+    .strawberry article {
+      background-color: rgb(248, 84, 134);
+    }
+    .strawberry.twitter .body {
+      color: white;
+    }
+    .strawberry footer {
+      background-color: rgb(244, 70, 120);
+    }
+
   </style>
+
 </head>
-<body>
+<body fullbleed unresolved>
 
-  <div>
-    <h1>Project Citizen</h1>
+  <core-toolbar class="header">
+    <paper-menu-button icon="menu">
+      <paper-item label="My Account"></paper-item>
+      <paper-item label="Item"></paper-item>
+      <paper-item label="Item"></paper-item>
+      <paper-item label="Item"></paper-item>
+      <paper-item label="Logout"></paper-item>
+    </paper-menu-button>
 
-    <ul>
-      <li><a href="notifications.html">Notifications</a></li>
-      <li><a href="new.html">New Push</a></li>
-      <li><a href="push.html">Empty Push</a></li>
-      <li><a href="story.html">Add a Story</a></li>
-    </ul>
-  </div>
+    <h1 flex>Project Citizen</h1>
+
+    <paper-icon-button icon="add"></paper-icon-button>  
+  </core-toolbar>
+
+  <ul class="post-list">
+    <li>
+      <article class="twitter">
+        <header horizontal layout>
+          <h3>
+            <b>aldoatgood</b>
+            <time datetime="2001-05-15 19:00"><abbr title="1 second ago">1s</abbr></time>
+          </h3>
+          <div flex></div>
+          <paper-icon-button icon="close"></paper-icon-button>
+        </header>
+
+        <div class="body">
+          <p>
+            Here we go!!
+            <strong>#ProjectCitizen</strong>
+          </p>
+        </div>
+
+        <footer horizontal layout>
+          <paper-icon-button icon="social:twitter" flex></paper-icon-button>
+        </footer>
+      </article>
+    </li>
+
+    <li>
+      <article>
+        <header horizontal layout>
+          <h3>
+            <b>Jelena</b>
+            <time datetime="2001-05-15 19:00"><abbr title="3 hours ago">3h</abbr></time>
+          </h3>
+          <div flex></div>
+          <paper-icon-button icon="close"></paper-icon-button>
+        </header>
+
+        <div class="body">
+          <p>
+            Drinking vinegar Shoreditch wolf hoodie skateboard. Veniam Vice commodo ea next level.
+          </p>
+        </div>
+
+        <footer horizontal layout>
+          <paper-icon-button icon="create"></paper-icon-button>
+          <div flex></div>
+          <paper-icon-button icon="drive-image"></paper-icon-button>
+        </footer>
+      </article>
+    </li>
+
+    <li>
+      <article>
+        <header horizontal layout>
+          <h3>
+            <b>brian</b>
+            <time datetime="2001-05-15 19:00"><abbr title="5 hours ago">5h</abbr></time>
+          </h3>
+          <div flex></div>
+          <paper-icon-button icon="close"></paper-icon-button>
+        </header>
+
+        <img src="https://s3.amazonaws.com/development.citizen.good.is/1eeec3359f16dae6ac718061ff461a53621f0e92" alt="" />
+        <div class="body">
+          <p>
+            Working on Nexus 5 with picture from gallery
+          </p>
+        </div>
+
+        <footer horizontal layout>
+          <paper-icon-button icon="create"></paper-icon-button>
+          <div flex></div>
+          <paper-icon-button icon="drive-image"></paper-icon-button>
+        </footer>
+      </article>
+    </li>
+  </ul>
+
+  <script>
+  (function() {
+
+    // Returns a random integer between min (included) and max (excluded)
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    /* OPTIONAL: Show a random background color */
+    var colors = [
+      "strawberry",
+      "banana",
+      "sky"
+    ];
+    var items = document.querySelectorAll(".post-list li");
+    var cursor = getRandomInt(0, colors.length);
+    for (var index = 0; index < items.length; index++) {
+      items[index].classList.add(colors[cursor]);
+      cursor++;
+      if (cursor > colors.length - 1) cursor = 0;
+    }
+
+  })();
+  </script>
 
 </body>
 </html>
