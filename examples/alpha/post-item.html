@@ -34,6 +34,7 @@
 
       /* =Post Body
       ----------------------------------------------- */
+      polyfill-next-selector { content: '.body img'; }
       .body ::content img {
         display: block;
         max-width: 100%;
@@ -43,12 +44,15 @@
         padding: 1.5em;
         font-size: 1.125em;
       }
+      polyfill-next-selector { content: '.body p:first-child'; }
       .body ::content p:first-child {
         margin-top: 0;
       }
+      polyfill-next-selector { content: '.body p:last-child'; }
       .body ::content p:last-child {
         margin-bottom: 0;
       }
+      polyfill-next-selector { content: 'post-item.twitter .body'; }
       :host(.twitter) .body {
         text-align: center;
         font-size: 1.5em;
@@ -63,27 +67,35 @@
       footer {
         background-color: rgb(153, 153, 153);
       }
+      polyfill-next-selector { content: 'post-item.sky article'; }
       :host(.sky) article {
         background-color: rgb(105, 215, 243);
       }
+      polyfill-next-selector { content: 'post-item.sky.twitter .body'; }
       :host(.sky.twitter) .body {
         color: white;
       }
+      polyfill-next-selector { content: 'post-item.sky footer'; }
       :host(.sky) footer {
         background-color: rgb(92, 205, 245);
       }
+      polyfill-next-selector { content: 'post-item.banana article'; }
       :host(.banana) article {
         background-color: rgb(254, 231, 82);
       }
+      polyfill-next-selector { content: 'post-item.banana footer'; }
       :host(.banana) footer {
         background-color: rgb(254, 228, 0);
       }
+      polyfill-next-selector { content: 'post-item.strawberry article'; }
       :host(.strawberry) article {
         background-color: rgb(248, 84, 134);
       }
+      polyfill-next-selector { content: 'post-item.strawberry.twitter .body'; }
       :host(.strawberry.twitter) .body {
         color: white;
       }
+      polyfill-next-selector { content: 'post-item.strawberry footer'; }
       :host(.strawberry) footer {
         background-color: rgb(244, 70, 120);
       }
