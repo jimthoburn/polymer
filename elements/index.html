@@ -201,7 +201,7 @@
 
 <link rel="import" href="social.html" />
 
-<pre><code>&lt;link rel=&quot;import&quot; href=&quot;…social.html&quot; /&gt;
+<pre><code>&lt;link rel=&quot;import&quot; href=&quot;social.html&quot; /&gt;
 </code></pre>
 
 <core-icon icon="social:twitter"></core-icon>
@@ -278,51 +278,69 @@
 
 
 
-<h2>Chronological List</h2>
+<h2>Post Item</h2>
+
+<link rel="import" href="post-item.html" />
+
+<pre><code>&lt;link rel=&quot;import&quot; href=&quot;post-item.html&quot; /&gt;
+</code></pre>
+
+<post-item author="aldoatgood" datetime="2014-10-01 19:00" twitter class="sky">
+  <p>
+    Here we go!!
+    <strong>#ProjectCitizen</strong>
+  </p>
+</post-item>
+
+<pre><code>&lt;post-item author=&quot;aldoatgood&quot; datetime=&quot;2014-10-01 19:00&quot; twitter class=&quot;sky&quot;&gt;
+  &lt;p&gt;
+    Here we go!!
+    &lt;strong&gt;#ProjectCitizen&lt;/strong&gt;
+  &lt;/p&gt;
+&lt;/post-item&gt;
+</code></pre>
+
+
+<h2>Post List</h2>
 
 <style>
-.post-list,
-.post-list li {
-  list-style: none;
-  padding-left: 0;
-}
-.post-list li + li {
-  margin-top: 1.5em;
-}
-.post-list article {
-  padding: 1.5em;
-  position: relative;
-}
+  .post-list,
+  .post-list li {
+    list-style: none;
+    padding-left: 0;
+  }
+  .post-list li + li {
+    margin-top: 1.5em;
+  }
+
 </style>
 
 <ul class="post-list">
   <li>
-    <article>
-      <paper-shadow></paper-shadow>
-      <h3><time datetime="2001-05-15 19:00">Today</time></h3>
-      <p>Today I decided to make a list of elements that can be used to piece together an app; a bit like a list of ingredients.</p>
-      <p>My goal is to make it easy to implement different interface ideas.</p>
-    </article>
+    <post-item author="Jelena" datetime="2014-10-01 19:00" class="banana">
+      <p>
+        Drinking vinegar Shoreditch wolf hoodie skateboard. Veniam Vice commodo ea next level.
+      </p>
+    </post-item>
   </li>
   <li>
-    <article>
-      <paper-shadow></paper-shadow>
-      <h3><time datetime="2001-05-16 19:00">Yesterday</time></h3>
-      <google-map latitude="37.77493" longitude="-122.41942" style="width: 320px; height: 320px;"></google-map>
-    </article>
+    <post-item author="brian" datetime="2014-10-01 19:00" class="strawberry">
+      <img src="https://s3.amazonaws.com/development.citizen.good.is/1eeec3359f16dae6ac718061ff461a53621f0e92" alt="" />
+      <p>
+        Working on Nexus 5 with picture from gallery
+      </p>
+    </post-item>
+  </li>
+  <li>
+    <post-item author="aldoatgood" datetime="2014-10-01 19:00" twitter class="sky">
+      <p>
+        Here we go!!
+        <strong>#ProjectCitizen</strong>
+      </p>
+    </post-item>
   </li>
 </ul>
 
-<pre><code>&lt;article&gt;
-  &lt;paper-shadow&gt;&lt;/paper-shadow&gt;
-  …
-&lt;/article&gt;
-…
-&lt;article&gt;
-  &lt;paper-shadow&gt;&lt;/paper-shadow&gt;
-  …
-&lt;/article&gt;
-</code></pre>
 
 <!--
 https://www.polymer-project.org/docs/elements/core-elements.html#core-list
