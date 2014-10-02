@@ -6,7 +6,7 @@
 
 <link rel="import" href="social.html" />
 
-<polymer-element name="post-item" attributes="author datetime">
+<polymer-element name="post-item" attributes="author datetime twitter">
   <template>
     <style>
 
@@ -62,8 +62,8 @@
       .body ::content p:last-child {
         margin-bottom: 0;
       }
-      polyfill-next-selector { content: 'post-item.twitter .body'; }
-      :host(.twitter) .body {
+      polyfill-next-selector { content: 'post-item[twitter] .body'; }
+      :host([twitter]) .body {
         text-align: center;
         font-size: 1.5em;
       }
@@ -81,8 +81,8 @@
       :host(.sky) article {
         background-color: rgb(105, 215, 243);
       }
-      polyfill-next-selector { content: 'post-item.sky.twitter .body'; }
-      :host(.sky.twitter) .body {
+      polyfill-next-selector { content: 'post-item[twitter].sky .body'; }
+      :host([twitter].sky) .body {
         color: white;
       }
       polyfill-next-selector { content: 'post-item.sky footer'; }
@@ -101,8 +101,8 @@
       :host(.strawberry) article {
         background-color: rgb(248, 84, 134);
       }
-      polyfill-next-selector { content: 'post-item.strawberry.twitter .body'; }
-      :host(.strawberry.twitter) .body {
+      polyfill-next-selector { content: 'post-item[twitter].strawberry .body'; }
+      :host([twitter].strawberry) .body {
         color: white;
       }
       polyfill-next-selector { content: 'post-item.strawberry footer'; }
@@ -127,15 +127,22 @@
       </div>
 
       <footer horizontal layout>
-        <paper-icon-button icon="create"></paper-icon-button>
-        <div flex></div>
-        <paper-icon-button icon="drive-image"></paper-icon-button>
+        <template if="{{twitter}}">
+          <paper-icon-button icon="social:twitter" flex></paper-icon-button>
+        </template>
+        <template if="{{!twitter}}">
+          <paper-icon-button icon="create"></paper-icon-button>
+          <div flex></div>
+          <paper-icon-button icon="drive-image"></paper-icon-button>
+        </template>
       </footer>
     </article>
 
   </template>
 
   <script>
-    Polymer();
+    Polymer({
+      twitter: false
+    });
   </script>
 </polymer-element>
