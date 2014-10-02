@@ -20,7 +20,7 @@
 
   <link rel="import" href="social.html" />
 
-  <style>
+  <style shim-shadowdom>
 
     body {
       font: 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -38,6 +38,8 @@
     .header paper-icon-button {
       color: rgb(255, 80, 133);
     }
+
+    polyfill-next-selector { content: '.header paper-icon-button core-icon'; }
     .header paper-icon-button::shadow core-icon {
       width: 2em;
       height: 2em;
@@ -61,14 +63,13 @@
     }
     .post-list header {
       border-bottom: 1px solid white;
-      align-items: center;
     }
     .post-list h3 {
       margin: 0;
       font-weight: inherit;
       font-style: inherit;
       font-size: 0.875em;
-      padding: 0 10px;
+      padding: 10px;
     }
     .post-list time {
       opacity: 0.25;
