@@ -110,6 +110,33 @@
         background-color: rgb(244, 70, 120);
       }
 
+
+      /* =Experimental
+      ----------------------------------------------- */
+      :host([contenteditable]) .body {
+        background-color: rgba(255, 255, 255, 0.75);
+      }
+
+      .body ::content textarea {
+        height: 7.5em;
+        padding: 1.5em;
+        line-height: 1.5em;
+        font-size: inherit;
+        font-family: inherit;
+        width: calc(100% + 3em);
+        box-sizing: border-box;
+        margin-left: -1.5em;
+        margin-right: -1.5em;
+        border-width: 0;
+        background-color: rgba(255, 255, 255, 0.75);
+      }
+      .body ::content textarea:first-child {
+        margin-top: -1.5em;
+      }
+      .body ::content textarea:last-child {
+        margin-bottom: -1.5em;
+      }
+
     </style>
 
     <article>

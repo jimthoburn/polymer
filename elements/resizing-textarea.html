@@ -1,0 +1,65 @@
+
+<link rel="import" href="../components/polymer/polyer.html" />
+
+<polymer-element name="resizing-textarea">
+
+  <template>
+
+    <style>
+      textarea {
+        border: 0 none white;
+        overflow: hidden;
+        padding: 0;
+        outline: none;
+        background-color: #D0D0D0;
+        resize: none;
+      }
+    </style>
+
+    <textarea rows="1" style="height:1em;" id="text"></textarea>
+
+  </template>
+
+  <!-- KUDOS: http://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize -->
+  <script>
+    Polymer({
+      domReady: function() {
+
+        var observe;
+
+        if (window.attachEvent) {
+          observe = function (element, event, handler) {
+            element.attachEvent('on'+event, handler);
+          };
+        }
+        else {
+          observe = function (element, event, handler) {
+            element.addEventListener(event, handler, false);
+          };
+        }
+
+        function init () {
+          var text = this.$.text;
+          function resize () {
+            text.style.height = 'auto';
+            text.style.height = text.scrollHeight+'px';
+          }
+          /* 0-timeout to get the already changed text */
+          function delayedResize () {
+            window.setTimeout(resize, 0);
+          }
+          observe(text, 'change',  resize);
+          observe(text, 'cut',   delayedResize);
+          observe(text, 'paste',   delayedResize);
+          observe(text, 'drop',  delayedResize);
+          observe(text, 'keydown', delayedResize);
+
+          resize();
+        }
+
+        init();
+      }
+    });
+  </script>
+
+</polymer-element>
