@@ -1,0 +1,213 @@
+
+<link rel="import" href="../../components/polymer/polymer.html" />
+
+<link rel="import" href="../../components/core-icons/core-icons.html" />
+<link rel="import" href="../../components/paper-icon-button/paper-icon-button.html" />
+
+<link rel="import" href="social.html" />
+
+<polymer-element name="post-list">
+  <template>
+    <style>
+
+      /* =Posts
+      ----------------------------------------------- */
+      .post-list,
+      .post-list li {
+        list-style: none;
+        padding-left: 0;
+      }
+      .post-list {
+        margin: 0 0 3em;
+      }
+      .post-list li {
+        margin: 10px auto;
+        padding: 0 10px;
+        max-width: 40em;
+      }
+      .post-list header {
+        border-bottom: 1px solid white;
+      }
+      .post-list h3 {
+        margin: 0;
+        font-weight: inherit;
+        font-style: inherit;
+        font-size: 0.875em;
+        padding: 10px;
+      }
+      .post-list time {
+        opacity: 0.25;
+      }
+      .post-list time:before {
+        content: "•";
+        margin: 0 0.5em;
+      }
+      .post-list paper-icon-button {
+        color: white;
+      }
+
+
+      /* =Post Body
+      ----------------------------------------------- */
+      .post-list img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+      .post-list .body {
+        padding: 1.5em;
+        font-size: 1.125em;
+      }
+      .post-list .body p:first-child {
+        margin-top: 0;
+      }
+      .post-list .body p:last-child {
+        margin-bottom: 0;
+      }
+      .post-list .twitter .body {
+        text-align: center;
+        font-size: 1.5em;
+      }
+
+
+      /* =Colors
+      ----------------------------------------------- */
+      .post-list article {
+        background-color: rgb(204, 204, 204);
+      }
+      .post-list footer {
+        background-color: rgb(153, 153, 153);
+      }
+      .sky article {
+        background-color: rgb(105, 215, 243);
+      }
+      .sky.twitter .body {
+        color: white;
+      }
+      .sky footer {
+        background-color: rgb(92, 205, 245);
+      }
+      .banana article {
+        background-color: rgb(254, 231, 82);
+      }
+      .banana footer {
+        background-color: rgb(254, 228, 0);
+      }
+      .strawberry article {
+        background-color: rgb(248, 84, 134);
+      }
+      .strawberry.twitter .body {
+        color: white;
+      }
+      .strawberry footer {
+        background-color: rgb(244, 70, 120);
+      }
+
+    </style>
+
+    <ul class="post-list">
+      <li>
+        <article class="twitter">
+          <header horizontal layout>
+            <h3>
+              <b>aldoatgood</b>
+              <time datetime="2001-05-15 19:00"><abbr title="1 second ago">1s</abbr></time>
+            </h3>
+            <div flex></div>
+            <paper-icon-button icon="close"></paper-icon-button>
+          </header>
+
+          <div class="body">
+            <p>
+              Here we go!!
+              <strong>#ProjectCitizen</strong>
+            </p>
+          </div>
+
+          <footer horizontal layout>
+            <paper-icon-button icon="social:twitter" flex></paper-icon-button>
+          </footer>
+        </article>
+      </li>
+
+      <li>
+        <article>
+          <header horizontal layout>
+            <h3>
+              <b>Jelena</b>
+              <time datetime="2001-05-15 19:00"><abbr title="3 hours ago">3h</abbr></time>
+            </h3>
+            <div flex></div>
+            <paper-icon-button icon="close"></paper-icon-button>
+          </header>
+
+          <div class="body">
+            <p>
+              Drinking vinegar Shoreditch wolf hoodie skateboard. Veniam Vice commodo ea next level.
+            </p>
+          </div>
+
+          <footer horizontal layout>
+            <paper-icon-button icon="create"></paper-icon-button>
+            <div flex></div>
+            <paper-icon-button icon="drive-image"></paper-icon-button>
+          </footer>
+        </article>
+      </li>
+
+      <li>
+        <article>
+          <header horizontal layout>
+            <h3>
+              <b>brian</b>
+              <time datetime="2001-05-15 19:00"><abbr title="5 hours ago">5h</abbr></time>
+            </h3>
+            <div flex></div>
+            <paper-icon-button icon="close"></paper-icon-button>
+          </header>
+
+          <img src="https://s3.amazonaws.com/development.citizen.good.is/1eeec3359f16dae6ac718061ff461a53621f0e92" alt="" />
+          <div class="body">
+            <p>
+              Working on Nexus 5 with picture from gallery
+            </p>
+          </div>
+
+          <footer horizontal layout>
+            <paper-icon-button icon="create"></paper-icon-button>
+            <div flex></div>
+            <paper-icon-button icon="drive-image"></paper-icon-button>
+          </footer>
+        </article>
+      </li>
+    </ul>
+  </template>
+
+  <script>
+    Polymer("post-list", {
+      domReady: function() {
+
+        // Returns a random integer between min (included) and max (excluded)
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+        function getRandomInt(min, max) {
+          return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        /* OPTIONAL: Show a random background color */
+        var colors = [
+          "strawberry",
+          "banana",
+          "sky"
+        ];
+        var items = this.shadowRoot.querySelectorAll(".post-list li");
+        var cursor = getRandomInt(0, colors.length);
+        for (var index = 0; index < items.length; index++) {
+          items[index].classList.add(colors[cursor]);
+          cursor++;
+          if (cursor > colors.length - 1) cursor = 0;
+        }
+
+      }
+    });
+  </script>
+</polymer-element>
