@@ -37,7 +37,48 @@
       <p class="posts">3 <span>posts</span></p>
     </header>
 
+    <section class="dialog">
+      <h1>Link to Twitter</h1>
+      <p>Enter a list of hashtags to pull from your Twitter feed into your push.</p>
+
+      <form action="" method="post">
+        <p>
+          <input type="text" name="tags" placeholder="#Hashtags" title="Hashtags" />
+        </p>
+        <p class="submit">
+          <button type="submit">Submit</button>
+        </p>
+      </form>
+    </section>
+
     <ul class="post-list">
+      <li>
+        <article>
+          <header>
+            <h3>Dan</h3>
+            <p>4</p>
+            <form action="" method="post">
+              <button type="submit">Delete this Post</button>
+            </form>
+          </header>
+
+          <textarea name="body" autofocus></textarea>
+
+          <footer>
+            <p><a href="">Edit this post</a></p>
+
+            <form action="" method="post">
+              <p>
+                <label>
+                  <span>Add an image</span>
+                  <input type="file" multiple="" accept="image/*">
+                </label>
+              </p>
+            </form>
+          </footer>
+          
+        </article>
+      </li>
       <li class="twitter">
         <article>
           <header>
