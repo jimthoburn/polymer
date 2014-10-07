@@ -1,0 +1,422 @@
+
+  @font-face{
+  font-family:"Proxima Nova";
+  src:url("fonts/7e90123f-e4a7-4689-b41f-6bcfe331c00a.eot?#iefix");
+  src:url("fonts/7e90123f-e4a7-4689-b41f-6bcfe331c00a.eot?#iefix") format("eot"),url("fonts/e56ecb6d-da41-4bd9-982d-2d295bec9ab0.woff") format("woff"),url("fonts/2aff4f81-3e97-4a83-9e6c-45e33c024796.ttf") format("truetype"),url("fonts/ab9cd062-380f-4b53-b1a7-c0bec7402235.svg#ab9cd062-380f-4b53-b1a7-c0bec7402235") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  }
+  @font-face{
+  font-family:"Proxima Nova";
+  src:url("fonts/bc15a635-a09b-40d1-a5c4-70310166177d.eot?#iefix");
+  src:url("fonts/bc15a635-a09b-40d1-a5c4-70310166177d.eot?#iefix") format("eot"),url("fonts/9c69c878-2255-4027-8632-ed3635cddf45.woff") format("woff"),url("fonts/b7eb3871-e910-4522-9982-effb425a2714.ttf") format("truetype"),url("fonts/a0d89860-20e5-4bc0-b6c5-eae8ae0ebbbf.svg#a0d89860-20e5-4bc0-b6c5-eae8ae0ebbbf") format("svg");
+  font-weight: normal;
+  font-style: italic;
+  }
+  @font-face{
+  font-family:"Proxima Nova";
+  src:url("fonts/fbc6b03a-b3a1-427c-a884-053deca3a53c.eot?#iefix");
+  src:url("fonts/fbc6b03a-b3a1-427c-a884-053deca3a53c.eot?#iefix") format("eot"),url("fonts/d999c07b-a049-4eb5-b8a6-4f36ae25e67e.woff") format("woff"),url("fonts/4d4a75f5-d32a-4a09-8665-133afd39cc37.ttf") format("truetype"),url("fonts/8152bc4e-d700-4c78-b6be-326893e6f53f.svg#8152bc4e-d700-4c78-b6be-326893e6f53f") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  }
+
+  body {
+    font: 100%/1.5 "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    color: inherit;
+  }
+  a:hover,
+  a:active,
+  a:focus {
+    text-decoration: none;
+  }
+
+
+  /* =Header
+  ----------------------------------------------- */
+  header.primary {
+    background-color: rgb(246, 246, 246);
+    padding: 1.5em;
+  }
+  header.primary:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  header.primary h2 {
+    margin: 0;
+    font-size: 1.3125em;
+    float: left;
+    line-height: 1;
+  }
+  header.primary nav {
+    margin: 0 1.5em 0 0;
+    float: left;
+  }
+  header.primary nav h3 {
+    margin: -1em;
+    background: transparent url(images/nav.svg) center no-repeat;
+    background-size: 1.3125em auto;
+    width: 1.3125em;
+    height: 1.3125em;
+    text-indent: -9999px;
+    overflow: hidden;
+    padding: 1em;
+    font-size: inherit;
+    z-index: 1;
+  }
+  /*
+  header.primary nav.active h3 {
+    background-color: white;
+  }
+  */
+  .scripted-nav header.primary nav div {
+    margin-top: 0.75em;
+    position: absolute;
+    left: -9999px;
+    background: white;
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.25);
+    z-index: 1;
+  }
+  .scripted-nav header.primary nav.active div {
+    margin-left: -0.75em;
+    left: auto;
+  }
+  header.primary nav p {
+    margin: 0;
+    padding: 0.75em;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(244, 244, 244);
+  }
+  header.primary ul {
+    margin: 0;
+  }
+  header.primary ul,
+  header.primary li {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  header.primary li a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.75em;
+  }
+  header.primary .add {
+    color: rgb(255, 80, 133);
+    float: right;
+    margin: 0;
+  }
+  header.primary .add a {
+    display: block;
+    background: transparent url(images/add-strawberry.svg) no-repeat;
+    background-size: contain;
+    width: 1.3125em;
+    height: 1.3125em;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+
+
+  /* =Push
+  ----------------------------------------------- */
+  header.push {
+    text-align: center;
+    padding: 1.5em;
+    background-color: rgb(251, 251, 251);
+  }
+  header.push h1 {
+    font-size: 1.125em;
+  }
+  header.push .location {
+    margin-top: 0;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    margin-bottom: 1.5em;
+    opacity: 0.5;
+  }
+  header.push .posts:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    background: transparent url(images/add.svg) center no-repeat;
+    background-size: 1em auto;
+    width: 1.5em;
+    height: 1.5em;
+    text-indent: -9999px;
+    overflow: hidden;
+    font-size: 0.6em;
+    border: 2px solid black;
+    border-radius: 100%;
+    margin-right: 0.5em;
+  }
+  header.push .posts span {
+    position: absolute;
+    left: -9999px;
+  }
+
+
+  /* =Post List
+  ----------------------------------------------- */
+  .post-list,
+  .post-list li {
+    list-style: none;
+    padding-left: 0;
+  }
+  .post-list {
+    margin: 0 0 3em;
+  }
+  .post-list li {
+    margin: 10px auto;
+    padding: 0 10px;
+    max-width: 31.25em; /* image.width / font-size (500px / 16px) */
+  }
+
+
+  /* =Post
+  ----------------------------------------------- */
+  article header {
+    border-bottom: 1px solid white;
+    padding: 0.75em;
+  }
+  article header:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  article header h3,
+  article header p {
+    margin: 0;
+    font-size: 0.875em;
+    float: left;
+  }
+  article header h3 {
+    
+  }
+  article header p {
+    opacity: 0.25;
+  }
+  article header p:before {
+    content: "•";
+    margin: 0 0.5em;
+  }
+  article header form {
+    float: right;
+  }
+
+
+  /* =Post Body
+  ----------------------------------------------- */
+  article .body img {
+    display: block;
+    max-width: calc(100% + 3em);
+    height: auto;
+
+    /* OPTIONAL: Make the image go all the way to the edges */
+    margin-left: -1.5em;
+    margin-right: -1.5em;
+  }
+  article .body > img:first-child {
+
+    /* OPTIONAL: Make the image go all the way to the edges */
+    margin-top: -1.5em;
+  }
+  article .body {
+    padding: 1.5em;
+    font-size: 1.125em;
+
+    /* OPTIONAL: Handle the case where a URL within a comment or a story is really long and won’t wrap naturally. */
+    word-wrap     : break-word; /* Currently supported in most browsers */
+    overflow-wrap : break-word; /* TBD: Proposed standard that will be supported everywhere eventually? */
+  }
+  article .body p:first-child {
+    margin-top: 0;
+  }
+  article .body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .twitter article .body {
+    text-align: center;
+    font-size: 1.5em;
+  }
+  article footer {
+    padding: 0.75em;
+  }
+  article footer:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  article footer p {
+    float: left;
+    margin: 0;
+  }
+  article footer form {
+    float: right;
+  }
+  article footer .twitter {
+    display: block;
+    height: 1.5em;
+    width: 100%;
+    text-indent: -9999px;
+    overflow: hidden;
+    border-width: 0;
+    background: transparent url(images/twitter.svg) center no-repeat;
+    background-size: contain;
+  }
+
+
+  /* =Colors
+  ----------------------------------------------- */
+  article {
+    background-color: rgb(224, 224, 224);
+  }
+  footer {
+    background-color: rgb(204, 204, 204);
+  }
+  li:nth-child(3n+1) article {
+    background-color: rgb(105, 215, 243);
+  }
+  li:nth-child(3n+1).twitter .body {
+    color: white;
+  }
+  li:nth-child(3n+1) footer {
+    background-color: rgb(92, 205, 245);
+  }
+  li:nth-child(3n+2) article {
+    background-color: rgb(254, 231, 82);
+  }
+  li:nth-child(3n+2).twitter .body {
+    color: inherit;
+  }
+  li:nth-child(3n+2) footer {
+    background-color: rgb(254, 228, 0);
+  }
+  li:nth-child(3n+3) article {
+    background-color: rgb(248, 84, 134);
+  }
+  li:nth-child(3n+3).twitter .body.twitter {
+    color: white;
+  }
+  li:nth-child(3n+3) footer {
+    background-color: rgb(244, 70, 120);
+  }
+
+
+  /* =Edit
+  ----------------------------------------------- */
+  article textarea {
+    margin: 0;
+    min-height: 7.5em;
+    padding: 1.5em;
+    line-height: 1.5em;
+    font-size: inherit;
+    font-family: inherit;
+    width: 100%;
+    box-sizing: border-box;
+    border-width: 0;
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+  article input[type="file"] {
+    position: absolute;
+    left: -9999px;
+  }
+  article input[type="file"]:focus {
+    position: static;
+  }
+
+
+  /* =Icons
+  ----------------------------------------------- */
+  article header form {
+    line-height: 1;
+  }
+  article header button,
+  article footer a,
+  article footer label span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.3125em;
+    height: 1.3125em;
+    text-indent: -9999px;
+    overflow: hidden;
+    border-width: 0;
+  }
+  article header button {
+    background: transparent url(images/close.svg) center no-repeat;
+    background-size: contain;
+  }
+  article footer a {
+    background: transparent url(images/edit.svg) center no-repeat;
+    background-size: contain;
+  }
+  article footer label span {
+    background: transparent url(images/picture.svg) center no-repeat;
+    background-size: contain;
+  }
+
+
+  /* =Dialog
+  ----------------------------------------------- */
+  .dialog {
+    max-width: 33em;
+    margin: 3em auto;
+  }
+
+
+  /* =Form
+  ----------------------------------------------- */
+  form label > span {
+    font-size: 0.875em; /* 14px / @font-size */
+  }
+  form label > span:first-child {
+    font-weight: bold;
+  }
+  input[type="text"],
+  input[type="url"],
+  input[type="email"],
+  input[type="password"] {
+    border-width: 0;
+    border-radius: 0;
+    border: 1px solid rgb(225, 225, 225); /* @silver */
+
+    /* Give the field a width of 22em’s, but make it fit on small screens. */
+    max-width: 22em;
+    width: 100%;
+    -moz-box-sizing : border-box;
+    box-sizing      : border-box;
+
+    margin: 0;
+    font-size: inherit;
+    font-family: inherit;
+    color: rgb(56, 52, 68);
+
+    /* TRICKY: Some browsers don’t allow line height to be
+    adjusted on text fields, so assume a line height of “normal”
+    and rely on padding to adjust to the vertical rythm. */
+    padding: 0.45em 0.6em;
+  }
+  .submit button {
+    display: inline-block;
+    font-size: inherit;
+    font-family: inherit;
+    background-color: white;
+    color: inherit;
+    cursor: pointer;
+    border-width: 0;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0.25em;
+
+    line-height: 1.6875em;
+    padding: 0.5625em 1.25em;
+    text-transform: uppercase;
+
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.25);
+  }
+
